@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWeatherApp.Views.ForecastDetailsPage"
+             xmlns:vm="using:MyWeatherApp.ViewModel"
+             Title="Forecast Details">
+    <ContentPage.Content>
+
+
+
+        <Frame HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    <StackLayout VerticalOptions="Center">
+
+                        <Image x:Name="WeatherIcon" WidthRequest="50" HeightRequest="50" Source="{Binding WeatherImageSource}"></Image>
+
+                        <Label x:Name="DateLabel" Font="Bold" TextColor="Green" Text="{Binding FullDate}" HorizontalOptions="Center"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal" Margin="0,15,0,0">
+
+                        <Label Font="Bold" Text="Main Weather:"></Label>
+                        <Label x:Name="Weatherlabel" Font="Normal" Text="{Binding MainWeather}" ></Label>
+                        
+
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Description:"></Label>
+                        <Label x:Name="WeatherDescriptionlabel" Font="Normal" Text="{Binding WeatherDescription}" ></Label>
+
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Temperature:"></Label>
+                        <Label x:Name="TempLabel" Font="Normal" Text="{Binding TempAverage}" TextColor="Orange" ></Label>
+                        <Label Font="Normal" Text="°C" TextColor="Orange"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Min. Temperature:"></Label>
+                        <Label x:Name="TempMinLabel" Font="Normal" Text="{Binding TempMin}" TextColor="Blue"></Label>
+                        <Label Font="Normal" Text="°C" TextColor="Blue"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Max. Temperature:"></Label>
+                        <Label x:Name="TempMaxLabel" Font="Normal" Text="{Binding TempMax}" TextColor="Red"></Label>
+                        <Label Font="Normal" Text="°C" TextColor="Red"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Pressure:"></Label>
+                        <Label x:Name="PressureLabel" Font="Normal" Text="{Binding Pressure}" ></Label>
+                        <Label Font="Normal" Text="hpa"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Humidity:"></Label>
+                        <Label x:Name="HumidityLabel" Font="Normal" Text="{Binding Humidity}" ></Label>
+                        <Label Font="Normal" Text="%"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Sea Level:"></Label>
+                        <Label x:Name="SeaLevelLabel" Font="Normal" Text="{Binding SeaLevel}" ></Label>
+                        <Label Font="Normal" Text="m"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Ground Level:"></Label>
+                        <Label x:Name="GrndLevelLabel" Font="Normal" Text="{Binding GroundLevel}" ></Label>
+                        <Label Font="Normal" Text="m"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+
+                        <Label Font="Bold" Text="Wind Speed:"></Label>
+                        <Label x:Name="WindSpeedLabel" Font="Normal" Text="{Binding TempMax}" TextColor="Brown"></Label>
+                        <Label Font="Normal" Text="m/s" TextColor="Brown"></Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+
+    </ContentPage.Content>
+</ContentPage>

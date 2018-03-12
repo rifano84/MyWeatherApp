@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWeatherApp.Controls.SingleForecastControl"
+              xmlns:vm="using:MyWeatherApp.ViewModel">
+  <ContentView.Content>
+
+
+      
+      <!--custom control to show single forecast item-->
+
+        <Frame HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                Command="{Binding ShowForecastDetailsCommand}"
+                NumberOfTapsRequired="1" />
+            </Frame.GestureRecognizers>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+
+                <Label x:Name="DateLabel" Font="Bold" WidthRequest="180" Text="{Binding DateText, Mode=TwoWay}" VerticalOptions="Center"></Label>
+
+                <Image x:Name="WeatherIcon" WidthRequest="40" HeightRequest="40" Source="{Binding WeatherImageSource, Mode=TwoWay}" VerticalOptions="Center"></Image>
+
+                <Label x:Name="TemperatureLabel" Font="Normal" TextColor="Blue" Text="{Binding TemperatureText, Mode=TwoWay}" VerticalOptions="Center"></Label>
+                <Label Text="°C" VerticalOptions="Center" Font="Normal" TextColor="Blue"></Label>
+
+            </StackLayout>
+
+
+        </Frame>
+
+
+    </ContentView.Content>
+</ContentView>

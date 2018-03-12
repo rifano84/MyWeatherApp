@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyWeatherApp"
+             xmlns:vm="using:MyWeatherApp.ViewModel"
+             xmlns:control="clr-namespace:MyWeatherApp.Controls"
+             x:Class="MyWeatherApp.MainPage"
+             Title="My Weather App">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_settings_white_24dp.png" Command="{Binding }"/>
+    </ContentPage.ToolbarItems>-->
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+
+            <StackLayout Margin="0,20,0,0">
+
+                <Label Text="Get Weather Forecasts easily" Font="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="10,10,0,0" HorizontalOptions="CenterAndExpand">
+
+                <Image x:Name="CountryImage" WidthRequest="25" HeightRequest="25" Source="{Binding CountryImageSource, Mode=TwoWay}" HorizontalOptions="Start">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                Command="{Binding ShowCountriesListCommand}"
+                NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+
+                </Image>
+
+                <Entry x:Name="ZipEntry" WidthRequest="100" Text="{Binding ZipCodeInput, Mode=TwoWay}" Margin="10,0,0,0" Placeholder="ZIP Code"></Entry>
+
+                <Button x:Name="ZipWeatherButton" WidthRequest="120" Margin="10,0,0,0" Text="By ZIP Code" Font="Normal" Command="{Binding RetrieveForecastsCommand}"
+             CommandParameter="{Binding Source={x:Reference ForecastControlsLayout}}"></Button>
+
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal" Margin="10,10,0,0" HorizontalOptions="CenterAndExpand">
+
+                <Button x:Name="LocationWeatherButton" WidthRequest="280" Text="By Current Location" Font="Normal" Command="{Binding RetrieveForecastsByLocationCommand}"
+             CommandParameter="{Binding Source={x:Reference ForecastControlsLayout}}"></Button>
+
+            </StackLayout>
+
+
+            <!--separator line-->
+            <StackLayout HeightRequest="3" BackgroundColor="LightGreen" HorizontalOptions="FillAndExpand" Margin="5,10,5,0"></StackLayout>
+
+            
+            <!--loading indicator-->
+            <ActivityIndicator IsVisible="{Binding IsBusy,Mode=TwoWay}" HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy,Mode=TwoWay}" Color="LightBlue" />
+
+
+            <!--main container view for retrieved fortecasts-->
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <control:BindableStackLayout x:Name="ForecastControlsLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Items="{Binding ForecastControlsList}">
+
+
+                </control:BindableStackLayout>
+
+            </ScrollView>
+
+
+        </StackLayout>
+
+    </Grid>
+</ContentPage>
